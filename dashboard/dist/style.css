@@ -1,0 +1,83 @@
+/* Loose ends: self-contained, high-readability styling. Deliberately ignores the dashboard's
+   display fonts and low-contrast theme colors. Light/dark follows the device setting. */
+.le-wrap {
+  --le-bg: #f6f6f4; --le-card: #ffffff; --le-text: #1d1d1f; --le-muted: #5e5e66;
+  --le-border: #dcdcd8; --le-accent: #2457c5; --le-accent-text: #ffffff; --le-accent-soft: #e8eefb;
+  --le-chosen: #2457c5; --le-error: #b42318;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 16px; line-height: 1.5; letter-spacing: normal; text-transform: none;
+  color: var(--le-text); background: var(--le-bg);
+  max-width: 760px; margin: 0 auto; padding: 1.25rem 1rem 3rem; box-sizing: border-box; width: 100%; min-width: 0;
+  display: flex; flex-direction: column; gap: 0.85rem; border-radius: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-color-scheme: dark) {
+  .le-wrap {
+    --le-bg: #18191b; --le-card: #222326; --le-text: #ececec; --le-muted: #a3a3aa;
+    --le-border: #34353a; --le-accent: #7aa2f7; --le-accent-text: #0f1115; --le-accent-soft: #263049;
+    --le-chosen: #7aa2f7; --le-error: #ff8a80;
+  }
+}
+.le-wrap *, .le-wrap *::before, .le-wrap *::after {
+  font-family: inherit !important; letter-spacing: normal !important; text-transform: none !important; box-sizing: border-box;
+}
+/* Long URLs and ids must wrap instead of widening the page (which makes phones zoom out). */
+.le-wrap, .le-title, .le-ask, .le-detail, .le-row { overflow-wrap: anywhere; word-break: break-word; }
+
+.le-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; flex-wrap: wrap; }
+.le-h1 { font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--le-text); }
+.le-muted { color: var(--le-muted); font-size: 0.875rem; }
+.le-error { color: var(--le-error); font-size: 0.95rem; }
+.le-flash { background: var(--le-accent-soft); color: var(--le-text); border-radius: 10px; padding: 0.7rem 0.9rem; font-size: 0.95rem; }
+
+.le-item { background: var(--le-card); color: var(--le-text); border: 1px solid var(--le-border); border-radius: 12px;
+  padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem; min-width: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.le-item.le-chosen { border-color: var(--le-chosen); box-shadow: 0 0 0 1px var(--le-chosen); }
+.le-item-head { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.le-bot { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--le-accent); background: var(--le-accent-soft);
+  border-radius: 999px; padding: 0.1rem 0.55rem; white-space: nowrap; }
+.le-title { font-weight: 650; font-size: 1.05rem; flex: 1 1 12rem; min-width: 0; }
+.le-when { color: var(--le-muted); font-size: 0.8rem; white-space: nowrap; }
+.le-ask { font-size: 1rem; color: var(--le-text); }
+.le-detail { font-size: 0.93rem; color: var(--le-muted); white-space: pre-wrap; }
+
+.le-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
+.le-btn { border: 1px solid var(--le-border); background: var(--le-card); color: var(--le-text); border-radius: 10px;
+  padding: 0.5rem 0.9rem; font-size: 0.95rem; font-weight: 500; cursor: pointer; min-height: 2.5rem; }
+.le-btn:hover { border-color: var(--le-accent); }
+.le-btn-on { background: var(--le-accent); color: var(--le-accent-text); border-color: var(--le-accent); }
+/* 16px stops iOS zooming into the text box. */
+.le-note { width: 100%; border: 1px solid var(--le-border); background: var(--le-bg); color: var(--le-text);
+  border-radius: 10px; padding: 0.6rem 0.7rem; font-size: 16px; line-height: 1.45; resize: vertical; min-height: 4.5rem; }
+.le-note:focus { outline: 2px solid var(--le-accent); outline-offset: 1px; border-color: transparent; }
+
+.le-submit { position: sticky; bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; }
+.le-primary { background: var(--le-accent); color: var(--le-accent-text); border: 0; border-radius: 10px;
+  padding: 0.65rem 1.2rem; font-size: 1rem; font-weight: 600; cursor: pointer; min-height: 2.75rem; }
+.le-primary:disabled { opacity: 0.45; cursor: default; }
+
+.le-card { background: var(--le-card); border: 1px solid var(--le-border); border-radius: 12px; padding: 0.9rem 1.1rem; margin-top: 0.5rem; }
+.le-section-title { font-size: 1rem; font-weight: 650; margin: 0 0 0.4rem; color: var(--le-text); }
+.le-row { padding: 0.6rem 0; border-top: 1px solid var(--le-border); font-size: 0.95rem; }
+.le-row:first-child { border-top: 0; }
+.le-row summary { cursor: pointer; }
+
+/* No double-tap zoom or tap delay on controls. */
+.le-wrap button, .le-wrap summary, .le-wrap textarea { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+html.le-mobile-ok { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+@media (max-width: 640px) {
+  .le-wrap { padding: 0.9rem 0.6rem calc(6rem + env(safe-area-inset-bottom)); border-radius: 0; gap: 0.7rem; }
+  .le-h1 { font-size: 1.3rem; }
+  .le-item { padding: 0.9rem 0.85rem; }
+  /* Three equal, thumb-sized buttons on one row. */
+  .le-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
+  .le-btn { min-height: 3rem; padding: 0.4rem 0.3rem; font-size: 0.92rem; line-height: 1.2; }
+  /* Submit bar pinned to the bottom edge, full width, clear of the home indicator. */
+  .le-submit { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; margin: 0;
+    padding: 0.65rem 0.75rem calc(0.65rem + env(safe-area-inset-bottom));
+    background: var(--le-bg); border-top: 1px solid var(--le-border); flex-direction: column; align-items: stretch; gap: 0.3rem; }
+  .le-submit .le-primary { width: 100%; min-height: 3.1rem; }
+  .le-submit .le-muted { text-align: center; }
+}

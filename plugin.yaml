@@ -1,0 +1,14 @@
+name: loose-ends
+version: 1.0.0
+manifest_version: 2
+api_version: 1
+description: >
+  Everything your bots are still waiting on you for, in one list. A twice-daily sweep reads
+  every bot's recent conversations and lists the questions, approvals and to-dos you haven't
+  closed. Mark each one dealt with, snooze it until tomorrow, or hand it back to its bot with
+  next steps. Shows as a dashboard tab and in Hermes Native. Registers no hooks or tools.
+author: Hermes Native
+license: MIT
+requires_hermes: ">=0.21"
+tags: [dashboard, productivity]
+provides_hooks: []

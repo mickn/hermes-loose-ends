@@ -1,0 +1,14 @@
+{
+  "name": "loose-ends",
+  "label": "Loose ends",
+  "description": "Everything your bots are still waiting on you for: mark it dealt with, remind yourself tomorrow, or hand next steps back to the bot.",
+  "icon": "Star",
+  "version": "1.0.0",
+  "tab": {
+    "path": "/loose-ends",
+    "position": "end"
+  },
+  "entry": "dist/index.js",
+  "css": "dist/style.css",
+  "api": "plugin_api.py"
+}
